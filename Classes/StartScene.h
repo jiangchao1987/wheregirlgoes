@@ -14,9 +14,15 @@ public:
     
     // a selector callback
     void menuCloseCallback(Object* pSender);
+	void menuPlayCallback(Object* pSender);
+	void menuShopCallback(Object* pSender);
+	void menuSettingCallback(Object* pSender);
     
     // implement the "static create()" method manually
     CREATE_FUNC(StartScene);
+
+	void onEnter();
+	void onExit();
 };
 
 #endif // __START_SCENE_H__

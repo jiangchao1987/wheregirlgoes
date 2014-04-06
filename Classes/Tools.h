@@ -13,4 +13,7 @@ using namespace std;
 Layer* createCommonBackLayer();
 Sprite* createLogo();
 
+void playBackGroundMusic();
+void stopBackGroundMusic();
+
 #endif

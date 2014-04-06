@@ -1,4 +1,5 @@
 #include "Tools.h"
+#include "SimpleAudioEngine.h"
 
 Layer* createCommonBackLayer()
 {
@@ -31,4 +32,18 @@ Sprite* createLogo()
 	logo->setPosition(Point(size.width/2 - 5, size.height/2 + logo->getSpriteFrame()->getRect().size.height/2));
 
 	return logo;
+}
+
+void playBackGroundMusic()
+{
+	if (!CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying())
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("background.wav");
+	}
+}
+
+void stopBackGroundMusic()
+{
+	if (CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying())
+		CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 }
