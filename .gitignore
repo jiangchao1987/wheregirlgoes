@@ -1,0 +1,14 @@
+# 把下面两个文件排除的原因是在使用vs的团队资源管理器中git功能时，在使用同步、更改等功能时会出现一个bug，
+# 提示An error was raised by...  opensdf
+# 可以参考http://visualstudiogallery.msdn.microsoft.com/abafc7d6-dcaa-40f4-8a5e-d6724bdb980c/view/Discussions/1
+cocos2d
+proj.win32/wheregirlgoes.opensdf
+proj.win32/wheregirlgoes.sdf
+Debug.win32
+#proj.android/bin/
+#proj.android/gen/
+#proj.android/obj/
+proj.android
+proj.ios_mac
+proj.linux
+*.mp4
