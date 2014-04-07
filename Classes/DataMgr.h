@@ -17,7 +17,7 @@ public:
 private:
 	static DataMgr* instance;
 
-	bool loadData1();
+	bool loadQuestionData();
 	bool loadUserData();
 
 public:

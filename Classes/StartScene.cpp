@@ -1,5 +1,6 @@
 #include "StartScene.h"
 #include "AboutScene.h"
+#include "LevelView.h"
 #include "Tools.h"
 
 USING_NS_CC;
@@ -104,6 +105,9 @@ void StartScene::menuCloseCallback(Object* pSender)
 void StartScene::menuPlayCallback(Object* pSender)
 {
 	playEffectBtnClicked();
+
+	Scene* s = LevelView::scene();
+	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
 }
 
 void StartScene::menuShopCallback(Object* pSender)

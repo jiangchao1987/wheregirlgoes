@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
 #include "StartScene.h"
+#include "DataMgr.h"
 
 USING_NS_CC;
 
@@ -32,7 +33,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	CCEGLView::sharedOpenGLView()->setDesignResolutionSize(designSize.width, designSize.height, kResolutionNoBorder);
 
     // create a scene. it's an autorelease object
-	//DataMgr::getInstance();	//TODO: 这里还没有实现
+	//TODO: 这里还没有实现
+	DataMgr::getInstance();	
     auto scene = StartScene::createScene();
 
     // run
