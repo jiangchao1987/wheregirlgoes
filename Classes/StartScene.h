@@ -16,7 +16,7 @@ public:
     void menuCloseCallback(Object* pSender);
 	void menuPlayCallback(Object* pSender);
 	void menuShopCallback(Object* pSender);
-	void menuSettingCallback(Object* pSender);
+	void menuAboutCallback(Object* pSender);
     
     // implement the "static create()" method manually
     CREATE_FUNC(StartScene);

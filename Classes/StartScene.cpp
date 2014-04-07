@@ -1,4 +1,5 @@
 #include "StartScene.h"
+#include "AboutScene.h"
 #include "Tools.h"
 
 USING_NS_CC;
@@ -65,17 +66,17 @@ bool StartScene::init()
     auto shopMenu = Menu::create(shopItem, nullptr);
     shopMenu->setPosition(Point::ZERO);
     backLayer->addChild(shopMenu, 1);
-	//setting
-	auto settingItem = MenuItemImage::create(
+	//about
+	auto aboutItem = MenuItemImage::create(
 										  "index_setting.png",
 										  "index_setting_selected.png",
-										  CC_CALLBACK_1(StartScene::menuSettingCallback, this));
-    settingItem->setAnchorPoint(Point(0.5f, 0.5f));
-	settingItem->setPosition(Point(visibleSize.width/2 + settingItem->getContentSize().width/2  ,
+										  CC_CALLBACK_1(StartScene::menuAboutCallback, this));
+    aboutItem->setAnchorPoint(Point(0.5f, 0.5f));
+	aboutItem->setPosition(Point(visibleSize.width/2 + aboutItem->getContentSize().width/2  ,
 								visibleSize.height/4 ));
-    auto settingMenu = Menu::create(settingItem, nullptr);
-    settingMenu->setPosition(Point::ZERO);
-    backLayer->addChild(settingMenu, 1);
+    auto aboutMenu = Menu::create(aboutItem, nullptr);
+    aboutMenu->setPosition(Point::ZERO);
+    backLayer->addChild(aboutMenu, 1);
 
 	this->addChild(backLayer);
     
@@ -102,12 +103,18 @@ void StartScene::menuCloseCallback(Object* pSender)
 
 void StartScene::menuPlayCallback(Object* pSender)
 {
+	playEffectBtnClicked();
 }
 
 void StartScene::menuShopCallback(Object* pSender)
 {
+	playEffectBtnClicked();
 }
 
-void StartScene::menuSettingCallback(Object* pSender)
+void StartScene::menuAboutCallback(Object* pSender)
 {
+	playEffectBtnClicked();
+	
+	Scene* s = AboutScene::createScene();
+	Director::getInstance()->replaceScene(TransitionFade::create(0.5, s));
 }

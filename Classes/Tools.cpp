@@ -1,4 +1,5 @@
 #include "Tools.h"
+#include "DataMgr.h"
 #include "SimpleAudioEngine.h"
 
 Layer* createCommonBackLayer()
@@ -34,9 +35,18 @@ Sprite* createLogo()
 	return logo;
 }
 
+void setItemPosition(Layer* backLayer, Point anchor, Point position, MenuItemImage* item) {
+	item->setAnchorPoint(anchor);
+	item->setPosition(position);
+	// create menu, it's an autorelease object
+	auto menu = Menu::create(item, NULL);
+	menu->setPosition(Point::ZERO);
+	backLayer->addChild(menu, 1);
+}
+
 void playBackGroundMusic()
 {
-	if (!CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying())
+	if (!CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying() && DataMgr::getInstance()->isBgSoundOpen())
 	{
 		CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("background.wav");
 	}
@@ -46,4 +56,10 @@ void stopBackGroundMusic()
 {
 	if (CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying())
 		CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+}
+
+void playEffectBtnClicked()
+{
+	if (DataMgr::getInstance()->isBgSoundOpen())
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("pop3.mp3");
 }
